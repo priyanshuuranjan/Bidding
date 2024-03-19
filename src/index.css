@@ -13,4 +13,10 @@ body {
   width: 100vw;
   min-height: 100vh;
   background-color: #ced8ff;
+  transition: 0.5s;
+}
+
+/* container hole body color change by using toggle   */
+.container.dark {
+  background-color: #d66e6e;
 }

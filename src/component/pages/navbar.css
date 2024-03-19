@@ -5,6 +5,7 @@
   justify-content: space-between;
   background: #fff;
   padding: 15px 7%;
+  transition: 0.5s;
 }
 
 .logo {
@@ -51,4 +52,15 @@ ul li {
 .search-box img {
   width: 20px;
   cursor: pointer;
+}
+.dark .navbar {
+  background: #000;
+  color: #fff;
+}
+.dark .search-box {
+  background: #fff;
+}
+
+.dark .search-box input::placeholder {
+  color: #222;
 }
