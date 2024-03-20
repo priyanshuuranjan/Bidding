@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  width: 70%;
+  height: 40rem;
+  background-color: #f5f5f5;
+  margin: 5px auto;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.left,
+.right {
+  flex: 1;
+}
+
+.left {
+  padding: 20px;
+  margin: 60px;
+}
+
+.right {
+  text-align: right;
+  padding: 70px;
+}
+
+.left .welcome {
+  font-size: 16px;
+  color: #5138ee;
+  margin-bottom: 10px;
+}
+
+.left .title {
+  font-size: 60px;
+  line-height: 75px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.left .subtitle {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.left .description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin: 10px;
+}
+
+.right .auction-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.join-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.join-button:hover {
+  background-color: #412ba8;
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .hero {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    margin: 20px 0;
+  }
+
+  .left,
+  .right {
+    text-align: center;
+  }
+
+  .left .welcome {
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .left .title,
+  .subtitle {
+    text-align: left;
+  }
+
+  .left .description {
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .left .description p {
+    margin: 0;
+    padding: 0 10px;
+    text-indent: 0;
+    white-space: nowrap;
+  }
+
+  .join-button {
+    margin-top: 15px;
+    width: 40%;
+    max-width: 100px;
+    border-radius: 20px;
+    padding: 10px 10px;
+    display: block;
+  }
+
+  .right {
+    margin-top: -60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .right img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .right .auction-image {
+    max-width: 140%; /* Adjust image size to 80% of container width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 12px;
+    margin-left: -50px;
+    transition: transform 0.3s ease;
+  }
+}
