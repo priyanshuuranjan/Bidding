@@ -11,16 +11,20 @@ const Navbar = ({ theme, setTheme }) => {
 
   return (
     <div className="navbar">
-      <img
-        src={
-          theme === "light"
-            ? "/assets/logo-black.png"
-            : "/assets/logo-white.png"
-        }
-        alt="Logo"
-      />
+      <div className="navbar-logo">
+        <img
+          src={
+            theme === "light"
+              ? "/assets/logo-black.png"
+              : "/assets/logo-white.png"
+          }
+          alt="Logo"
+        />
+      </div>
       <ul
-        className={isMobile ? "nav-links-mobile" : "nav-links"}
+        className={`nav-links ${isMobile ? "nav-links-mobile" : ""} ${
+          theme === "light" ? "light-theme" : "dark-theme"
+        }`}
         onClick={() => setMobile(false)}
       >
         <Link to="/">

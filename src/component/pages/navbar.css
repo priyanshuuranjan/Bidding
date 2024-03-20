@@ -7,9 +7,12 @@
   padding: 15px 7%;
   transition: 0.5s;
 }
-
-.logo {
+.navbar-logo {
   width: 160px;
+}
+
+.navbar-logo img {
+  width: 100%;
   cursor: pointer;
 }
 
@@ -24,6 +27,14 @@ ul li {
   font-size: 18px;
   cursor: pointer;
 }
+.light-theme li {
+  color: black;
+}
+
+.dark-theme li {
+  color: white;
+}
+
 .toggle-icon {
   width: 50px;
   cursor: pointer;
@@ -69,50 +80,38 @@ ul li {
 .mobile-menu-icon {
   display: none;
 }
-@media screen and (max-width: 780px) {
-  .logo {
-    display: flex;
-    position: absolute;
-    top: 15px;
-    left: 35px;
+@media screen and (max-width: 890px) {
+  .mobile-menu-icon {
+    display: block;
   }
+  .navbar-logo {
+    width: 140px;
+  }
+  /* when screen size reduces then these nav links and search boxes were disable  */
   .nav-links {
     display: none;
   }
+  .toggle-icon {
+    width: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
   .nav-links-mobile {
     position: absolute;
-    display: block;
+    display: flex;
+    flex-direction: column;
     list-style: none;
-    background-color: #005469;
+    background-color: #227093;
     left: 0;
-    top: 75px;
+    top: 73px;
     transition: all 0.5s ease-out;
     width: 100%;
+    padding-top: 50px;
+    padding-bottom: 20px;
   }
-  .home,
-  .about,
-  .contact,
-  .bidds,
-  .login {
-    color: white;
-    text-align: center;
-    padding: 32px;
-    width: 100%;
-    transition: all 0.5s ease;
+}
+@media screen and (max-width: 850px) {
+  .search-box {
+    display: none;
   }
-  .login {
-    border: none;
-  }
-  .mobile-menu-icons {
-    display: block;
-    position: absolute;
-    font-size: 30px;
-    color: white;
-    background-color: #00828c; /* Note: corrected typo in color value */
-    border: none;
-    outline: none;
-    top: 15px;
-    right: 25px;
-  }
-  
 }
