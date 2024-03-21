@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./component/pages/Navbar";
-import Hero from "./component/pages/Hero";
-import About from "./component/pages/About";
-import Contact from "./component/pages/Contact";
-import Login from "./component/pages/Login";
 import { Routes, Route } from "react-router-dom";
+import Navbar from "./component/pages/Nav/Navbar";
+import Hero from "./component/pages/Hero/Hero";
+import About from "./component/pages/About/About";
+import Contact from "./component/pages/Contact/Contact";
+import Login from "./component/pages/Login/Login";
+import Feature from "./component/pages/Feature/Feature";
+
 
 const App = () => {
   // Retrieve the current theme from local storage
@@ -21,6 +23,7 @@ const App = () => {
     <div className={`container ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
+      <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER"/>
       <Routes>
         <Route exact path="/about" element={About} />
         <Route exact path="/contact" element={Contact} />
