@@ -6,9 +6,9 @@ const Hero = () => {
     <div className="hero">
       <div className="left">
         <p className="welcome">Welcome to</p>
-        <h1 className="title">Biddster</h1>
+        <h1 className="title">Bidster</h1>
         <h3 className="subtitle">
-          India's No. 1 Discount Auction Bidding Platform.
+          Discover the Unexplored: Where Unused Meets Untapped.
         </h3>
         <p className="description">
           Your premier online bidding platform. Bid directly on diverse

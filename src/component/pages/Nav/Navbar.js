@@ -11,16 +11,13 @@ const Navbar = ({ theme, setTheme }) => {
 
   return (
     <div className="navbar">
-      <div className="navbar-logo">
-        <img
-          src={
-            theme === "light"
-              ? "/assets/logo-black.png"
-              : "/assets/logo-white.png"
-          }
-          alt="Logo"
-        />
+      <div
+        className="navbar-logo"
+        style={{ fontWeight: "700", fontSize: "1.5em" }}
+      >
+        {theme === "light" ? "BIDSTER" : "BIDSTER"}
       </div>
+
       <ul
         className={`nav-links ${isMobile ? "nav-links-mobile" : ""} ${
           theme === "light" ? "light-theme" : "dark-theme"
@@ -33,7 +30,7 @@ const Navbar = ({ theme, setTheme }) => {
         <Link to="/bidds">
           <li>Bidds</li>
         </Link>
-        <Link to="/contact">
+        <Link to="/Contact">
           <li>Contact</li>
         </Link>
         <Link to="/about">

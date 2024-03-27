@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -85,7 +90,7 @@ ul li {
     display: block;
   }
   .navbar-logo {
-    width: 140px;
+    width: 60px;
   }
   /* when screen size reduces then these nav links and search boxes were disable  */
   .nav-links {
