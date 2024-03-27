@@ -5,8 +5,8 @@
   font-family: Outfit, sans-serif;
 } */
 .contact {
-  margin: 80px auto;
-  max-width: 90%;
+  margin: 70px auto;
+  width: 70%;
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -79,7 +79,7 @@
   background-color: darkblue;
 }
 
-.btn img{
-  width:20px;
+.btn img {
+  width: 20px;
   margin-left: 10px;
 }

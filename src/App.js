@@ -6,6 +6,7 @@ import About from "./component/pages/About/About";
 import Contact from "./component/pages/Contact/Contact";
 import Login from "./component/pages/Login/Login";
 import Feature from "./component/pages/Feature/Feature";
+import Footer from "./component/pages/Footer/Footer";
 
 const App = () => {
   // Retrieve the current theme from local storage
@@ -23,7 +24,8 @@ const App = () => {
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER" />
-      <Contact subtitle="OUR PROGRAM" title="WHAT WE OFFER"/>
+      <Contact/>
+      <Footer/>
       <Routes>
         <Route exact path="/about" element={About} />
         <Route exact path="/contact" element={Contact} />
