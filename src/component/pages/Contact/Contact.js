@@ -29,7 +29,7 @@ const Contact = () => {
     <>
       <div className="title">
         CONTACT US
-        <h2>Get in Touch</h2>
+        <h2>Get in Touch💕</h2>
       </div>
       <div className="contact">
         <div className="contact-col">
