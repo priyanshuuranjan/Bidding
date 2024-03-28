@@ -27,10 +27,10 @@ const Navbar = ({ theme, setTheme }) => {
         <Link to="/">
           <li>Home</li>
         </Link>
-        <Link to="/bidds">
-          <li>Bidds</li>
+        <Link to="/bids">
+          <li>Bids</li>
         </Link>
-        <Link to="/Contact">
+        <Link to="/contact">
           <li>Contact</li>
         </Link>
         <Link to="/about">

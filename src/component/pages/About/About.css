@@ -1,0 +1,16 @@
+/* ----------- Media query------------- */
+@media (max-width: 800px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .about-left {
+    flex-basis: 100%;
+    margin: 20px;
+    order: 2; /* ishke help se hm image ko niche order or text ko phle dikhate hai*/
+  }
+
+  .about-right {
+    flex-basis: 100%;
+  }
+}

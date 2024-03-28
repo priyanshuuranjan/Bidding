@@ -22,15 +22,23 @@ const App = () => {
   return (
     <div className={`container ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
-      <Hero />
-      <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER" />
-      <Contact/>
-      <Footer/>
+
       <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <>
+              <Hero />
+              <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER" />
+            </>
+          }
+        ></Route>
         <Route exact path="/about" element={About} />
-        <Route exact path="/contact" element={Contact} />
+        <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/login" element={Login} />
       </Routes>
+      <Footer />
     </div>
   );
 };
