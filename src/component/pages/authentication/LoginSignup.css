@@ -28,7 +28,7 @@
   border-radius: 9px;
 }
 .inputs {
-  margin-top: 40px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -48,7 +48,7 @@
 }
 
 .input input {
-  height: 50px;
+  height: 20px;
   width: 400px;
   background: transparent;
   border: none;
@@ -93,38 +93,43 @@
 }
 @media only screen and (max-width: 600px) {
   .auth {
-    width: 100%;
-    margin-top: 100px; /* Adjust margin-top for spacing */
+    width: 350px;
+    margin-top: 50px;
   }
 
   .header {
-    margin-top: 20px; /* Adjust margin-top for spacing */
+    margin-top: 20px;
   }
 
   .inputs {
-    margin-top: 30px; /* Adjust margin-top for spacing */
+    margin-top: 40px;
   }
 
   .input {
-    width: 100%; /* Make input fields full width */
+    width: 95%; /* Make input fields full width */
+    height: 45px;
   }
 
   .forgot-password {
-    padding-right: 0; /* Remove right padding */
-    text-align: center; /* Center the text */
+    padding-right: 0;
+    text-align: center;
   }
 
   .submit-container {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 15px; /* Add gap between buttons */
-    margin: 40px auto; /* Adjust margin as needed */
+    /* flex-direction: column;  Stack buttons vertically */
+    gap: 40px;
+    margin: 30px auto;
   }
 
   .submit {
-    width: 100%; /* Make buttons full width */
+    width: 110px;
+    height: 35px;
+    border-radius: 40px;
+    font-size: 15px;
+    cursor: pointer;
   }
 
   .text {
-    font-size: 36px; /* Decrease font size for smaller screens */
+    font-size: 25px; /* Decrease font size for smaller screens */
   }
 }
