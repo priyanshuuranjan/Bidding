@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 
+
+
 const Navbar = ({ theme, setTheme }) => {
   const toggle_mode = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -37,7 +39,14 @@ const Navbar = ({ theme, setTheme }) => {
           <li>About</li>
         </Link>
         <Link to="/login">
-          <li>Login</li>
+          <li>
+            login
+          </li>
+        </Link>
+        <Link to="/register">
+          <li>
+          Register
+          </li>
         </Link>
       </ul>
       <div className="search-box">

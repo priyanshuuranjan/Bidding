@@ -89,7 +89,7 @@ article h4 {
   font-weight: 500;
 }
 
-.text {
+.quote {
   max-width: 35em;
   margin: 0 auto;
   margin-top: 2rem;
@@ -125,7 +125,7 @@ article h4 {
   right: 0;
 }
 @media (min-width: 800px) {
-  .text {
+  .quote {
     max-width: 45em;
   }
   .prev,
