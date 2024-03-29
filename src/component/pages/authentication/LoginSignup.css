@@ -93,21 +93,21 @@
 }
 @media only screen and (max-width: 600px) {
   .auth {
-    width: 350px;
-    margin-top: 50px;
+    width: 380px;
+    margin-top: 70px;
   }
 
   .header {
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   .inputs {
-    margin-top: 40px;
+    margin-top: 50px;
   }
 
   .input {
     width: 95%; /* Make input fields full width */
-    height: 45px;
+    height: 55px;
   }
 
   .forgot-password {
@@ -117,19 +117,19 @@
 
   .submit-container {
     /* flex-direction: column;  Stack buttons vertically */
-    gap: 40px;
-    margin: 30px auto;
+    gap: 60px;
+    margin: 50px auto;
   }
 
   .submit {
     width: 110px;
-    height: 35px;
+    height: 45px;
     border-radius: 40px;
     font-size: 15px;
     cursor: pointer;
   }
 
   .text {
-    font-size: 25px; /* Decrease font size for smaller screens */
+    font-size: 28px; /* Decrease font size for smaller screens */
   }
 }
