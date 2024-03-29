@@ -85,16 +85,22 @@ ul li {
 .mobile-menu-icon {
   display: none;
 }
+.mobile-menu-icon {
+  display: none;
+}
 @media screen and (max-width: 890px) {
   .mobile-menu-icon {
     display: block;
   }
   .navbar-logo {
-    width: 60px;
+    width: 120px;
   }
   /* when screen size reduces then these nav links and search boxes were disable  */
   .nav-links {
     display: none;
+  }
+  .navbar{
+    width: 100%;
   }
   .toggle-icon {
     width: 40px;
@@ -120,3 +126,4 @@ ul li {
     display: none;
   }
 }
+
