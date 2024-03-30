@@ -11,7 +11,6 @@ import Slider from "./component/pages/Testimonials/Slider";
 import LoginSignup from "./component/pages/authentication/LoginSignup";
 import Body from "./component/auctions/Body";
 
-
 const App = () => {
   // Retrieve the current theme from local storage
   const currentTheme = localStorage.getItem("current_theme");
@@ -26,7 +25,6 @@ const App = () => {
   return (
     <div className={`container ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme} />
-
       <Routes>
         <Route
           exact
@@ -41,8 +39,8 @@ const App = () => {
         ></Route>
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/login" element={<LoginSignup />} />    
-        <Route exact path="/bid" element={<Body />} />    
+        <Route exact path="/login" element={<LoginSignup />} />
+        <Route exact path="/bid" element={<Body />} />
       </Routes>
       <Footer />
     </div>
