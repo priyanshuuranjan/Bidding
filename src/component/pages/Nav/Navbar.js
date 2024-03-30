@@ -47,9 +47,6 @@ const Navbar = ({ theme, setTheme }) => {
           </div>
         ) : (
           <>
-            <Link to="/login">
-              <li>Login</li>
-            </Link>
             <Link to="/register">
               <li>Register</li>
             </Link>

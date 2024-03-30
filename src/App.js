@@ -7,9 +7,9 @@ import Contact from "./component/pages/Contact/Contact";
 import Feature from "./component/pages/Feature/Feature";
 import Footer from "./component/pages/Footer/Footer";
 import Slider from "./component/pages/Testimonials/Slider";
-// import Register from "./component/authentication/Register";
-import LoginSignup from "./component/pages/authentication/LoginSignup";
+// import LoginSignup from "./component/pages/authentication/LoginSignup";
 import Body from "./component/auctions/Body";
+import Register from "./component/authentication/Register";
 
 const App = () => {
   // Retrieve the current theme from local storage
@@ -33,14 +33,16 @@ const App = () => {
             <>
               <Hero />
               <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER" />
+              <Body />
               <Slider />
             </>
           }
         ></Route>
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/login" element={<LoginSignup />} />
-        <Route exact path="/bid" element={<Body />} />
+        <Route exact path="/register" element={<Register />} />
+        {/* <Route exact path="/login" element={<LoginSignup />} /> */}
+        <Route exact path="/bids" element={<Body />} />
       </Routes>
       <Footer />
     </div>

@@ -1,11 +1,11 @@
-import { createContext, useEffect, useState } from 'react';
-import { authApp, firestoreApp } from '../config/firebase';
+import { createContext, useEffect, useState } from "react";
+import { authApp, firestoreApp } from "../config/firebase";
 
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [globalMsg, setGlobalMsg] = useState('');
+  const [globalMsg, setGlobalMsg] = useState("");
 
   const register = (email, password) => {
     return authApp.createUserWithEmailAndPassword(email, password);
@@ -21,11 +21,11 @@ export const AuthProvider = ({ children }) => {
 
   const bidAuction = (auctionId, price) => {
     if (!currentUser) {
-      return setGlobalMsg('Please login first');
+      return setGlobalMsg("Please login first");
     }
 
     let newPrice = Math.floor((price / 100) * 110);
-    const db = firestoreApp.collection('auctions');
+    const db = firestoreApp.collection("auctions");
 
     return db.doc(auctionId).update({
       curPrice: newPrice,
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const endAuction = (auctionId) => {
-    const db = firestoreApp.collection('auctions');
+    const db = firestoreApp.collection("auctions");
 
     return db.doc(auctionId).delete();
   };
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const interval = setTimeout(() => setGlobalMsg(''), 5000);
+    const interval = setTimeout(() => setGlobalMsg(""), 5000);
     return () => clearTimeout(interval);
   }, [globalMsg]);
 
