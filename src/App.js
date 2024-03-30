@@ -9,6 +9,7 @@ import Footer from "./component/pages/Footer/Footer";
 import Slider from "./component/pages/Testimonials/Slider";
 // import Register from "./component/authentication/Register";
 import LoginSignup from "./component/pages/authentication/LoginSignup";
+import Body from "./component/auctions/Body";
 
 
 const App = () => {
@@ -40,8 +41,8 @@ const App = () => {
         ></Route>
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/login" element={<LoginSignup />} />
-        
+        <Route exact path="/login" element={<LoginSignup />} />    
+        <Route exact path="/bid" element={<Body />} />    
       </Routes>
       <Footer />
     </div>

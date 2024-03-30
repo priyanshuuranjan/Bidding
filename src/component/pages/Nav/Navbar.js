@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-
-
+import { AuthContext } from "../../../context/AuthContext";
 
 const Navbar = ({ theme, setTheme }) => {
   const toggle_mode = () => {
@@ -10,6 +9,7 @@ const Navbar = ({ theme, setTheme }) => {
   };
 
   const [isMobile, setMobile] = useState(false);
+  const { currentUser, logout } = useContext(AuthContext); // Access currentUser from AuthContext
 
   return (
     <div className="navbar">
@@ -38,17 +38,25 @@ const Navbar = ({ theme, setTheme }) => {
         <Link to="/about">
           <li>About</li>
         </Link>
-        <Link to="/login">
-          <li>
-            login
-          </li>
-        </Link>
-        <Link to="/register">
-          <li>
-          Register
-          </li>
-        </Link>
+        {currentUser ? (
+          <div className="currentUser">
+            <div className="user-email">{currentUser.email}</div>
+            <div className="logout" onClick={logout}>
+              Logout
+            </div>
+          </div>
+        ) : (
+          <>
+            <Link to="/login">
+              <li>Login</li>
+            </Link>
+            <Link to="/register">
+              <li>Register</li>
+            </Link>
+          </>
+        )}
       </ul>
+
       <div className="search-box">
         <input type="text" placeholder="Search" />
         <img

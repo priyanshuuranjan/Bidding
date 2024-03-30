@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -9,9 +9,10 @@
   align-items: center;
   justify-content: space-between;
   background: #fff;
-  padding: 10px 7%;  
+  padding: 10px 7%;
   transition: 0.5s;
 }
+
 .navbar-logo {
   width: 160px;
 }
@@ -26,12 +27,14 @@ ul {
   list-style: none;
   text-align: center;
 }
+
 ul li {
   display: inline-block;
   margin: 10px 20px;
   font-size: 18px;
   cursor: pointer;
 }
+
 .light-theme li {
   color: black;
 }
@@ -45,6 +48,7 @@ ul li {
   cursor: pointer;
   margin-left: 40px;
 }
+
 .search-box {
   display: flex;
   align-items: center;
@@ -52,6 +56,7 @@ ul li {
   padding: 10px 20px;
   border-radius: 50px;
 }
+
 .search-box input {
   padding: 6px;
   background: transparent;
@@ -65,14 +70,17 @@ ul li {
 .search-box input::placeholder {
   color: #fff;
 }
+
 .search-box img {
   width: 20px;
   cursor: pointer;
 }
+
 .dark .navbar {
   background: #000;
   color: #fff;
 }
+
 .dark .search-box {
   background: #fff;
 }
@@ -81,34 +89,85 @@ ul li {
   color: #222;
 }
 
+/*! for logout and current user css  */
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.currentUser {
+  display: flex;
+  align-items: center;
+}
+
+.user-email {
+  margin-right: 30px;
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.search-box {
+  margin-left: 20px;
+}
+
+.toggle-icon {
+  margin-left: 20px;
+}
+
+.mobile-menu-icon {
+  margin-left: 20px;
+}
 /* Mobile Mode */
 .mobile-menu-icon {
   display: none;
 }
-.mobile-menu-icon {
-  display: none;
-}
+
 @media screen and (max-width: 890px) {
   .mobile-menu-icon {
     display: block;
   }
+
   .navbar-logo {
-    width: 120px;
+    width: 100px;
   }
-  /* when screen size reduces then these nav links and search boxes were disable  */
+
   .nav-links {
     display: none;
   }
-  .navbar{
+
+  .navbar {
     width: 100%;
   }
+
   .toggle-icon {
     width: 40px;
     cursor: pointer;
     margin-left: 20px;
   }
+  .currentUser {
+    display: flex;
+    flex-direction: column; /* Added this line to display items vertically */
+    align-items: center;
+  }
+
+  .user-email {
+    margin-bottom: 10px;
+  }
+
   .nav-links-mobile {
     position: absolute;
+    margin-top: -12px;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -121,9 +180,9 @@ ul li {
     padding-bottom: 20px;
   }
 }
+
 @media screen and (max-width: 850px) {
   .search-box {
     display: none;
   }
 }
-
