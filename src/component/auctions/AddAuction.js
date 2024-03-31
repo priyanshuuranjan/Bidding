@@ -1,31 +1,27 @@
+import React, { useContext, useRef, useState } from "react";
+import Alert from "@mui/material/Alert";
+import { AuthContext } from "../../context/AuthContext";
+import "./AddAuction.css";
 
-import { Button, Form, Modal, Alert, Row, Col } from 'react-bootstrap';
-import React, { useContext, useRef, useState } from 'react';
-import { AuthContext } from '../../context/AuthContext';
-
-export const AddAuction = ({ setAuction }) => {
-  const [showForm, setShowForm] = useState(false);
-  const [error, setError] = useState('');
-
+const AddAuction = () => {
+  const [error, setError] = useState("");
+  const [showForm, setShowForm] = useState(false); // State variable to control form visibility
+  const [auction, setAuction] = useState(null);
   const itemTitle = useRef();
   const itemDesc = useRef();
   const startPrice = useRef();
   const itemDuration = useRef();
   const itemImage = useRef();
-
   const { currentUser } = useContext(AuthContext);
 
-  const openForm = () => setShowForm(true);
-  const closeForm = () => setShowForm(false);
-
-  const imgTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+  const imgTypes = ["image/png", "image/jpeg", "image/jpg"];
 
   const submitForm = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     if (!imgTypes.includes(itemImage.current.files[0].type)) {
-      return setError('Please use a valid image');
+      return setError("Please use a valid image");
     }
 
     let currentDate = new Date();
@@ -34,7 +30,7 @@ export const AddAuction = ({ setAuction }) => {
     );
 
     let newAuction = {
-      email: currentUser.email,
+      email: currentUser?.email,
       title: itemTitle.current.value,
       desc: itemDesc.current.value,
       curPrice: startPrice.current.value,
@@ -43,85 +39,88 @@ export const AddAuction = ({ setAuction }) => {
     };
 
     setAuction(newAuction);
-    closeForm();
   };
 
   return (
     <>
-      <div className="col d-flex justify-content-center my-3">
-        <div onClick={openForm} className="btn btn-outline-secondary mx-2">
-          + Auction
-        </div>
-      </div>
-      <Modal centered show={showForm} onHide={closeForm}>
-        <form onSubmit={submitForm}>
-          <Modal.Header>
-            <Modal.Title>Create Auction</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+      <div
+        className={`form-overlay ${showForm ? "show" : ""}`}
+        onClick={() => setShowForm(false)}
+      ></div>
+      <button className="add-auction-btn" onClick={() => setShowForm(true)}>
+        + Auction
+      </button>{" "}
+      {/* Button to show form */}
+      {showForm && ( // Conditionally render the form
+        <div className={`form-container ${showForm ? "show" : ""}`}>
+          <form className="auction" onSubmit={submitForm}>
+            <div className="heading">
+              <div className="text">Create Auction</div>
+              <div className="under"></div>
+            </div>
             {error && <Alert variant="danger">{error}</Alert>}
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Item Title</Form.Label>
-                  <Form.Control type="text" required ref={itemTitle} />
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Item Description</Form.Label>
-                  <Form.Control type="text" required ref={itemDesc} />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Start Price</Form.Label>
-                  <Form.Control type="number" required ref={startPrice} />
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Item Duration in hours</Form.Label>
-                  <Form.Control type="number" required ref={itemDuration} />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Seller</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={currentUser.email}
-                    readOnly
-                  />
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group>
-                  <Form.Label>Item Image</Form.Label>
-                  <Form.File
-                    label="Select Item Image"
-                    custom
-                    required
-                    ref={itemImage}
-                  />
-                </Form.Group>
-              </Col>
-            </Row>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={closeForm}>
-              Cancel
-            </Button>
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Modal.Footer>
-        </form>
-      </Modal>
+            <div className="box">
+              <div className="input">
+                <img src="/assets/person.png" alt="" />
+                <input
+                  type="text"
+                  placeholder="Item Title"
+                  required
+                  ref={itemTitle}
+                />
+              </div>
+              <div className="input">
+                <img src="/assets/email.png" alt="" />
+                <input
+                  type="text"
+                  placeholder="Item Description"
+                  required
+                  ref={itemDesc}
+                />
+              </div>
+              <div className="input">
+                <img src="/assets/password.png" alt="" />
+                <input
+                  type="number"
+                  placeholder="Start Price"
+                  required
+                  ref={startPrice}
+                />
+              </div>
+              <div className="input">
+                <img src="/assets/password.png" alt="" />
+                <input
+                  type="number"
+                  placeholder="Item Duration in hours"
+                  required
+                  ref={itemDuration}
+                />
+              </div>
+              <div className="input">
+                <img src="/assets/password.png" alt="" />
+                <input type="text" value={currentUser?.email || ""} readOnly />
+              </div>
+              <div className="input">
+                <img src="/assets/password.png" alt="" />
+                <input
+                  type="file"
+                  label="Select Item Image"
+                  custom
+                  required
+                  ref={itemImage}
+                />
+              </div>
+            </div>
+            <div className="submit-btn-container">
+              <button type="submit" className="submit-btn">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </>
   );
 };
+
+export default AddAuction;

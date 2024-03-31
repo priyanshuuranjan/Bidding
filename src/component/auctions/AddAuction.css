@@ -1,0 +1,204 @@
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.form-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.add-auction-btn {
+  margin: 2% auto 0; 
+  display: block; 
+  text-align: center; 
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 38%;
+}
+
+.form-container {
+  position: fixed;
+  margin: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  
+}
+
+.form-container.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* =========================Auction CSS==============================*/
+.auction {
+  display: flex;
+  flex-direction: column;
+  margin-top: -20px;
+  margin-bottom: -40px;
+  height: 800px;
+  padding-bottom: 30px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.text {
+  color: #3c009d;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.under {
+  width: 61px;
+  height: 5px;
+  background: #3c009d;
+  border-radius: 9px;
+}
+
+.box {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 480px;
+  height: 70px;
+  background: #eaeaed;
+  border-radius: 6px;
+}
+
+.input img {
+  margin: 0px 30px;
+}
+
+.input input {
+  height: 20px;
+  width: 400px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #797979;
+  font-size: 19px;
+}
+
+.forgot-password {
+  padding-right: 250px;
+  text-align: center;
+  margin-top: 27px;
+  color: #797979;
+  font-size: 18px;
+}
+
+.forgot-password span {
+  color: #4c00b4;
+  cursor: pointer;
+}
+
+.submit-btn-container {
+  display: flex;
+  gap: 30px;
+  margin: 40px auto;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  color: #fff;
+  background: #4c00b4;
+  border-radius: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.gray {
+  background: #eaeaea;
+  color: #676767;
+}
+
+@media only screen and (max-width: 600px) {
+  .auction {
+    width: 300px;
+    align-items: center;
+  }
+  .form-container {
+    width: auto; 
+    max-width: 380px; 
+    height: auto; 
+    max-height: 80vh; 
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+    margin: 5% auto; 
+  }
+  .heading {
+    margin-top: 30px;
+  }
+
+  .box {
+    margin-top: 50px;
+  }
+
+  .input {
+    width: 70%; /* Make input fields full width */
+    height: 45px;
+  }
+
+  .submit-container {
+    gap: 60px;
+    margin: 50px auto;
+  }
+
+  .submit-btn {
+    width: 110px;
+    height: 45px;
+    border-radius: 40px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .text {
+    font-size: 28px; /* Decrease font size for smaller screens */
+  }
+
+  /* Adjustments for smaller screens */
+  .add-auction-btn {
+    margin: 20% auto 0; /* 20% from the top, auto horizontal margin */
+    margin-bottom: 0; /* Remove the bottom margin */
+  }
+}

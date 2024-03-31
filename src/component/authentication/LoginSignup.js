@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import Alert from "@mui/material/Alert";
 import "./LoginSignup.css";
-import { AuthContext } from "../../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const LoginSignup = () => {
@@ -22,7 +22,7 @@ const LoginSignup = () => {
     try {
       await login(emailRef.current.value, passwordRef.current.value);
       // Login successful, redirect to the home page
-      navigate("/");
+      navigate("/bids");
     } catch (error) {
       setError("Invalid login");
     }
