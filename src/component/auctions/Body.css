@@ -1,0 +1,7 @@
+.progress-bar-container {
+    position: fixed;
+    top: 50%;
+    right: 20px; /* Adjust as needed */
+    transform: translateY(-50%);
+  }
+  

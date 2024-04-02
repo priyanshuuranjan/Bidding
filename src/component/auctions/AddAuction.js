@@ -3,10 +3,9 @@ import Alert from "@mui/material/Alert";
 import { AuthContext } from "../../context/AuthContext";
 import "./AddAuction.css";
 
-const AddAuction = () => {
+const AddAuction = ({ setAuction }) => {
   const [error, setError] = useState("");
-  const [showForm, setShowForm] = useState(false); // State variable to control form visibility
-  const [auction, setAuction] = useState(null);
+  const [showForm, setShowForm] = useState(false);
   const itemTitle = useRef();
   const itemDesc = useRef();
   const startPrice = useRef();
@@ -18,10 +17,17 @@ const AddAuction = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    setError("");
+    console.log("Submit button clicked");
+
+    setError(""); // Clear any previous errors
+
+    if (!itemImage.current.files[0]) {
+      setError("Please select an image.");
+      return;
+    }
 
     if (!imgTypes.includes(itemImage.current.files[0].type)) {
-      return setError("Please use a valid image");
+      return setError('Please use a valid image');
     }
 
     let currentDate = new Date();
@@ -30,7 +36,7 @@ const AddAuction = () => {
     );
 
     let newAuction = {
-      email: currentUser?.email,
+      email: currentUser.email,
       title: itemTitle.current.value,
       desc: itemDesc.current.value,
       curPrice: startPrice.current.value,
@@ -38,7 +44,18 @@ const AddAuction = () => {
       itemImage: itemImage.current.files[0],
     };
 
+    console.log("New auction data:", newAuction);
+
+    try {
+      setAuction(newAuction);
+      setShowForm(false);
+      itemImage.current.value = ""; // Clear the file input field
+    } catch (error) {
+      console.error("Error setting auction data:", error);
+      setError("Failed to submit auction data. Please try again later.");
+    }
     setAuction(newAuction);
+    setShowForm(false);
   };
 
   return (
@@ -49,9 +66,8 @@ const AddAuction = () => {
       ></div>
       <button className="add-auction-btn" onClick={() => setShowForm(true)}>
         + Auction
-      </button>{" "}
-      {/* Button to show form */}
-      {showForm && ( // Conditionally render the form
+      </button>
+      {showForm && (
         <div className={`form-container ${showForm ? "show" : ""}`}>
           <form className="auction" onSubmit={submitForm}>
             <div className="heading">
@@ -98,7 +114,7 @@ const AddAuction = () => {
               </div>
               <div className="input">
                 <img src="/assets/password.png" alt="" />
-                <input type="text" value={currentUser?.email || ""} readOnly />
+                <input type="text" value={currentUser?.email } readOnly />
               </div>
               <div className="input">
                 <img src="/assets/password.png" alt="" />

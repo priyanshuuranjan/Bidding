@@ -10,42 +10,42 @@ import Slider from "./component/pages/Testimonials/Slider";
 import LoginSignup from "./component/authentication/LoginSignup";
 import Body from "./component/auctions/Body";
 import Register from "./component/authentication/Register";
+import { AuthProvider } from "./context/AuthContext";
 
 const App = () => {
-  // Retrieve the current theme from local storage
   const currentTheme = localStorage.getItem("current_theme");
 
   const [theme, setTheme] = useState(currentTheme || "light");
-
-  // Update local storage whenever the theme changes
   useEffect(() => {
     localStorage.setItem("current_theme", theme);
   }, [theme]);
 
   return (
-    <div className={`container ${theme}`}>
-      <Navbar theme={theme} setTheme={setTheme} />
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            <>
-              <Hero />
-              <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER" />
-              <Body />
-              <Slider />
-            </>
-          }
-        ></Route>
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/login" element={<LoginSignup />} />
-        <Route exact path="/bids" element={<Body />} />
-      </Routes>
-      <Footer />
-    </div>
+    <AuthProvider>
+      <div className={`container ${theme}`}>
+        <Navbar theme={theme} setTheme={setTheme} />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER" />
+                <Body />
+                <Slider />
+              </>
+            }
+          ></Route>
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<LoginSignup />} />
+          <Route exact path="/bids" element={<Body />} />
+        </Routes>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 };
 
