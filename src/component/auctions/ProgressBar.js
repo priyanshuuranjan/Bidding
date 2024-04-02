@@ -10,7 +10,6 @@ export const ProgressBar = ({ auction, setAuction }) => {
       setAuction(null);
     }
   }, [isCompleted, setAuction]);
-
   return (
     <motion.div
       style={{ height: "5px", background: "black" }}
