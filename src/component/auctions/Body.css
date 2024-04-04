@@ -1,7 +1,21 @@
-.progress-bar-container {
-    position: fixed;
-    top: 50%;
-    right: 20px; /* Adjust as needed */
-    transform: translateY(-50%);
-  }
-  
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.info {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
+
+.auction-card-container {
+  display: flex;
+  flex-wrap: row; 
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto;
+  width: 70%;
+}

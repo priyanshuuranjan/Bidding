@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Alert } from 'react-bootstrap';
 import { AuthContext } from '../../context/AuthContext';
 import useFirestore from '../../hooks/useFirestore';
-import AddAuction  from './AddAuction';
+import AddAuction from './AddAuction';
 import AuctionCard from './AuctionCard';
 import ProgressBar from './ProgressBar';
+import "./Body.css"
 
-
- const AuctionBody = () => {
+const AuctionBody = () => {
   const [auction, setAuction] = useState(null);
   const { currentUser, globalMsg } = useContext(AuthContext);
   const { docs } = useFirestore('auctions');
@@ -17,12 +16,12 @@ import ProgressBar from './ProgressBar';
       <div className="container">
         {auction && <ProgressBar auction={auction} setAuction={setAuction} />}
 
-        {globalMsg && <Alert variant="info">{globalMsg}</Alert>}
+        {globalMsg && <div className="alert info">{globalMsg}</div>}
 
         {currentUser && <AddAuction setAuction={setAuction} />}
 
         {docs && (
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div className="auction-card-container">
             {docs.map((doc) => {
               return <AuctionCard item={doc} key={doc.id} />;
             })}
@@ -32,4 +31,5 @@ import ProgressBar from './ProgressBar';
     </div>
   );
 };
-export default AuctionBody
+
+export default AuctionBody;

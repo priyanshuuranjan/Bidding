@@ -1,35 +1,34 @@
-import React, { useContext } from 'react';
-import Countdown from 'react-countdown';
-import { AuthContext } from '../../context/AuthContext';
-
+import React, { useContext } from "react";
+import Countdown from "react-countdown";
+import { AuthContext } from "../../context/AuthContext";
+import "./AuctionCard.css";
 const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
   if (completed) {
     return null;
   }
 
   return (
-    <div className="col">
-      <div className="card shadow-sm">
+    <div className="card-container">
+      <div className="card-image">
         <div
           style={{
-            height: '320px',
+            height: "300px",
             backgroundImage: `url(${props.item.imgUrl})`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
           }}
-          className="w-100"
         />
 
         <div className="card-body">
-          <p className="lead display-6">{props.item.title}</p>
-          <div className="d-flex jsutify-content-between align-item-center">
+          <p className="card-title">{props.item.title}</p>
+          <div className="card-time">
             <h5>
               {days * 24 + hours} hr: {minutes} min: {seconds} sec
             </h5>
           </div>
-          <p className="card-text">{props.item.desc}</p>
-          <div className="d-flex justify-content-between align-item-center">
+          <p className="card-desc">{props.item.desc}</p>
+          <div className="bid-section">
             <div>
               {!props.owner ? (
                 <div
@@ -46,7 +45,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
                   Cancel Auction
                 </div>
               ) : props.owner.email === props.item.curWinner ? (
-                <p className="display-6">Winner</p>
+                <p className="winner">Winner</p>
               ) : (
                 <div
                   onClick={() =>
@@ -58,7 +57,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
                 </div>
               )}
             </div>
-            <p className="display-6">${props.item.curPrice}</p>
+            <p className="price">${props.item.curPrice}</p>
           </div>
         </div>
       </div>
@@ -66,7 +65,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
   );
 };
 
- const AuctionCard = ({ item }) => {
+const AuctionCard = ({ item }) => {
   let expiredDate = item.duration;
   const { currentUser, bidAuction, endAuction } = useContext(AuthContext);
 
