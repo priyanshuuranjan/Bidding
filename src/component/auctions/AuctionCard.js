@@ -8,6 +8,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
   }
 
   return (
+    
     <div className="card-container">
       <div className="card-image">
         <div
