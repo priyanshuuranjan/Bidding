@@ -10,7 +10,11 @@ import Slider from "./component/pages/Testimonials/Slider";
 import LoginSignup from "./component/authentication/LoginSignup";
 import Body from "./component/auctions/Body";
 import Register from "./component/authentication/Register";
+import Home from "./component/Zoom/Home";
+import Video from "./component/Zoom/Video";
 import { AuthProvider } from "./context/AuthContext";
+
+
 
 const App = () => {
   const currentTheme = localStorage.getItem("current_theme");
@@ -42,6 +46,8 @@ const App = () => {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<LoginSignup />} />
           <Route exact path="/bids" element={<Body />} />
+          <Route exact path="/video" element={<Home />} />
+          <Route exact path="/room/:id" element={<Video />} />
         </Routes>
         <Footer />
       </div>

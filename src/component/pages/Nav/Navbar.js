@@ -38,6 +38,9 @@ const Navbar = ({ theme, setTheme }) => {
         <Link to="/about">
           <li>About</li>
         </Link>
+        <Link to="/video">
+          <li>Zoom</li>
+        </Link>
         {currentUser ? (
           <div className="currentUser">
             <div className="user-email">{currentUser.email}</div>
