@@ -92,7 +92,100 @@
 }
 
 /*******            Media Query         ***************/
-@media screen and (max-width: 768px) {
+
+
+/* media query 1149px */
+@media screen and (max-width: 1680px) {
+  .auction-card-container {
+    width: 100%;
+    margin-top: -540px;
+    margin-bottom: 20px;
+  }
+  
+
+  .card-desc {
+    margin-bottom: 5px;
+  }
+
+  .card-time {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .winner {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1485px) {
+  .auction-card-container {
+    width: 100%;
+    margin-top: -400px;
+    margin-bottom: 20px;
+  }
+  
+
+  .card-desc {
+    margin-bottom: 5px;
+  }
+
+  .card-time {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .winner {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .auction-card-container {
+    width: 100%;
+    margin-top: -300px;
+    margin-bottom: 20px;
+  }
+  
+
+  .card-desc {
+    margin-bottom: 5px;
+  }
+
+  .card-time {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .winner {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 820px) {
   .auction-card-container {
     width: 100%;
     margin-top: 20px;
