@@ -14,8 +14,6 @@ import Home from "./component/Zoom/Home";
 import Video from "./component/Zoom/Video";
 import { AuthProvider } from "./context/AuthContext";
 
-
-
 const App = () => {
   const currentTheme = localStorage.getItem("current_theme");
 
@@ -36,7 +34,7 @@ const App = () => {
               <>
                 <Hero />
                 <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER" />
-                <Body />
+                {/* <Body /> */}
                 <Slider />
               </>
             }
