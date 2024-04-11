@@ -6,6 +6,7 @@ import "./AddAuction.css";
 const AddAuction = ({ setAuction }) => {
   const [error, setError] = useState("");
   const [showForm, setShowForm] = useState(false);
+
   const itemTitle = useRef();
   const itemDesc = useRef();
   const startPrice = useRef();
@@ -17,9 +18,7 @@ const AddAuction = ({ setAuction }) => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log("Submit button clicked");
-
-    setError(""); // Clear any previous errors
+    setError("");
 
     if (!itemImage.current.files[0]) {
       setError("Please select an image.");
@@ -27,13 +26,20 @@ const AddAuction = ({ setAuction }) => {
     }
 
     if (!imgTypes.includes(itemImage.current.files[0].type)) {
-      return setError('Please use a valid image');
+      setError("Please use a valid image");
+      return;
     }
 
-    let currentDate = new Date();
-    let dueDate = currentDate.setHours(
-      currentDate.getHours() + itemDuration.current.value
-    );
+    const durationHours = parseInt(itemDuration.current.value);
+    if (isNaN(durationHours) || durationHours <= 0) {
+      setError("Please enter a valid duration in hours.");
+      return;
+    }
+
+    const durationInMillis = durationHours * 60 * 60 * 1000;
+
+    const currentDate = new Date();
+    const dueDate = currentDate.getTime() + durationInMillis;
 
     let newAuction = {
       email: currentUser.email,
@@ -44,18 +50,16 @@ const AddAuction = ({ setAuction }) => {
       itemImage: itemImage.current.files[0],
     };
 
-    console.log("New auction data:", newAuction);
-
     try {
       setAuction(newAuction);
       setShowForm(false);
-      itemImage.current.value = ""; // Clear the file input field
+      itemImage.current.value = "";
     } catch (error) {
       console.error("Error setting auction data:", error);
       setError("Failed to submit auction data. Please try again later.");
     }
-    setAuction(newAuction);
-    setShowForm(false);
+    // setAuction(newAuction);
+    // setShowForm(false);
   };
 
   return (
@@ -114,7 +118,7 @@ const AddAuction = ({ setAuction }) => {
               </div>
               <div className="input">
                 <img src="/assets/password.png" alt="" />
-                <input type="text" value={currentUser?.email } readOnly />
+                <input type="text" value={currentUser?.email} readOnly />
               </div>
               <div className="input">
                 <img src="/assets/password.png" alt="" />

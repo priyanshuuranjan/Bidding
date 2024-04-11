@@ -13,13 +13,13 @@ const AuctionBody = () => {
 
   return (
     <>
-    <div className="container">
-      {auction && <ProgressBar auction={auction} setAuction={setAuction} />}
+      <div className="container">
+        {auction && <ProgressBar auction={auction} setAuction={setAuction} />}
 
-      {globalMsg && <div className="alert info">{globalMsg}</div>}
+        {globalMsg && <div className="alert info">{globalMsg}</div>}
 
-      {currentUser && <AddAuction setAuction={setAuction} />}
-    
+        {currentUser && <AddAuction setAuction={setAuction} />}
+
         {docs && (
           <div className="auction-card-container">
             {docs.map((doc) => {
@@ -28,7 +28,6 @@ const AuctionBody = () => {
           </div>
         )}
       </div>
-    
     </>
   );
 };

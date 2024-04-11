@@ -8,7 +8,6 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
   }
 
   return (
-    
     <div className="card-container">
       <div className="card-image">
         <div
@@ -28,7 +27,10 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
               {days * 24 + hours} hr: {minutes} min: {seconds} sec
             </h5>
           </div>
-          <p className="card-desc">{props.item.desc}</p>
+       <div className="card-details">
+       <p className="card-desc">{props.item.desc} </p>
+          <p className="card-user">{props.item.email}</p>
+       </div>
           <div className="bid-section">
             <div>
               {!props.owner ? (

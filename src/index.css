@@ -27,7 +27,7 @@ color: #212EA0;
 font-size: 15px;
 font-weight: 600;
 text-transform: uppercase;
-margin: 70px 0 30px;
+margin: 50px 0 30px;
 }
 
 .title h2{ 
@@ -52,3 +52,5 @@ text-transform: none;
 body {
   overflow-x: hidden;
 }
+
+/*----- card auction-----*/
