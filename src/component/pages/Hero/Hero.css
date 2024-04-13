@@ -36,6 +36,7 @@
 }
 
 .left .title {
+  margin-top: -8px;
   font-size: 60px;
   line-height: 75px;
   font-weight: bold;
