@@ -13,15 +13,15 @@ const people = [
     name: "Priyanshu Singh",
     title: "UI & Backend",
     quote:
-      "As the UI and backend developer for Bidster, I meticulously crafted the user interface for optimal experience, ensured responsiveness, and managed backend development using Firebase Firestore for efficient data storage. Bidster's success reflects the dedication to delivering a seamless blend of aesthetics and functionality.",
+      "As Bidster's UI and backend developer, I optimized aesthetics and functionality, crafting a seamless user interface. Utilizing Firebase Firestore, I managed responsive design and efficient data storage.",
   },
   {
     id: 3,
-    image: "/assets/harsh.jpeg",
+    image: "/assets/harsh.jpg",
     name: "Harsh Deep",
     title: "Frontend",
     quote:
-      "As the frontend developer for Bidster, I crafted a visually appealing and intuitive user interface, optimizing for responsiveness to enhance user engagement and satisfaction, contributing significantly to Bidster's success.",
+      "I prioritized user engagement by creating an intuitive and visually appealing interface. My emphasis on responsiveness played a crucial role in Bidster's success.",
   },
 ];
 
