@@ -5,7 +5,7 @@ const people = [
     name: "Amit Katoch",
     title: "Project Guider",
     quote:
-      "As the project guide for Bidster, I provided strategic direction, advised on feature development, facilitated team collaboration, and offered mentorship throughout the project's lifecycle.",
+      " I provided strategic direction, advised on feature development, facilitated team collaboration, and offered mentorship throughout the project's lifecycle.",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const people = [
     name: "Priyanshu Singh",
     title: "UI & Backend",
     quote:
-      "As Bidster's UI and backend developer, I optimized aesthetics and functionality, crafting a seamless user interface. Utilizing Firebase Firestore, I managed responsive design and efficient data storage.",
+      " I optimized aesthetics and functionality, crafting a seamless user interface. Utilizing Firebase Firestore, I managed responsive design and efficient data storage.",
   },
   {
     id: 3,

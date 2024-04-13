@@ -15,6 +15,7 @@
   /* ----------- Media query------------- */
   @media (max-width: 600px) {
     .footer {
+      margin-top: 80px;
       display: block;
       text-align: center;
     }
