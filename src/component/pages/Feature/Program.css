@@ -50,6 +50,7 @@
 /* ----------- Media query------------- */
 @media (max-width: 650px) {
   .programs {
+    margin-top: -30px;
     flex-direction: column;
   }
 
