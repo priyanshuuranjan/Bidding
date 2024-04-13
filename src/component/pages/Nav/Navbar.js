@@ -30,7 +30,10 @@ const Navbar = ({ theme, setTheme }) => {
           <li>Home</li>
         </Link>
         <Link to="/bids">
-          <li>Bids</li>
+          <li>Live Auctions</li>
+        </Link>
+        <Link to="/endauction">
+          <li>Closed Auctions</li>
         </Link>
         <Link to="/contact">
           <li>Contact</li>
@@ -60,7 +63,7 @@ const Navbar = ({ theme, setTheme }) => {
         )}
       </ul>
 
-      <div className="search-box">
+      {/* <div className="search-box">
         <input type="text" placeholder="Search" />
         <img
           src={
@@ -68,7 +71,7 @@ const Navbar = ({ theme, setTheme }) => {
           }
           alt=""
         />
-      </div>
+      </div> */}
       <img
         onClick={toggle_mode}
         src={theme === "light" ? "/assets/night.png" : "/assets/day.png"}

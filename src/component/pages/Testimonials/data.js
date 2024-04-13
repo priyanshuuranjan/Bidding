@@ -1,15 +1,15 @@
 const people = [
   {
     id: 1,
-    image: "/images/customer/Person1.png",
-    name: "Amit Kumar",
+    image: "/assets/priyanshu.jpg",
+    name: "Amit Katoch",
     title: "Research Paper",
     quote:
       "Since 2002, I've steered Kumar Fertilizer as India's top online agri-supplier. We specialize in seeds, fertilizers, pesticides, and more, committed to quality and affordability. Our mission is agricultural excellence, empowering farmers with reliable products and unwavering customer support. Kumar Fertilizer is more than a business; it's a legacy of prosperity in every field. ",
   },
   {
     id: 2,
-    image: "/images/customer/Person2.jpg",
+    image: "/assets/priyanshu.jpg",
     name: "Priyanshu Singh",
     title: "Design nd Backend",
     quote:
@@ -17,7 +17,7 @@ const people = [
   },
   {
     id: 3,
-    image: "/images/customer/Person3.jpg",
+    image: "/assets/priyanshu.jpg",
     name: "Shri",
     title: "Project Report",
     quote:

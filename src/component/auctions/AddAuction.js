@@ -32,11 +32,11 @@ const AddAuction = ({ setAuction }) => {
 
     const durationHours = parseInt(itemDuration.current.value);
     if (isNaN(durationHours) || durationHours <= 0) {
-      setError("Please enter a valid duration in hours.");
+      setError("Please enter a valid duration in minutes.");
       return;
     }
 
-    const durationInMillis = durationHours * 60 * 60 * 1000;
+    const durationInMillis = durationHours * 60 * 1000; // time changes into minutes for testing *60 means for hour
 
     const currentDate = new Date();
     const dueDate = currentDate.getTime() + durationInMillis;
@@ -58,8 +58,6 @@ const AddAuction = ({ setAuction }) => {
       console.error("Error setting auction data:", error);
       setError("Failed to submit auction data. Please try again later.");
     }
-    // setAuction(newAuction);
-    // setShowForm(false);
   };
 
   return (
@@ -111,7 +109,7 @@ const AddAuction = ({ setAuction }) => {
                 <img src="/assets/password.png" alt="" />
                 <input
                   type="number"
-                  placeholder="Item Duration in hours"
+                  placeholder="Item Duration in Hour"
                   required
                   ref={itemDuration}
                 />

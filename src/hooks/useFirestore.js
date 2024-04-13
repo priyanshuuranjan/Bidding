@@ -14,10 +14,10 @@ const useFirestore = (collection) => {
       setDocs(documents);
     });
 
-    return unsubscribe; // Return the unsubscribe function directly
+    return unsubscribe;
   }, [collection]);
 
   return { docs };
-}
-export default useFirestore
+};
 
+export default useFirestore;

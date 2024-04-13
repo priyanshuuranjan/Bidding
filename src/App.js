@@ -9,10 +9,13 @@ import Footer from "./component/pages/Footer/Footer";
 import Slider from "./component/pages/Testimonials/Slider";
 import LoginSignup from "./component/authentication/LoginSignup";
 import Body from "./component/auctions/Body";
+import AuctionEnd from "./component/auctions/AuctionEnd";
 import Register from "./component/authentication/Register";
 import Home from "./component/Zoom/Home";
 import Video from "./component/Zoom/Video";
 import { AuthProvider } from "./context/AuthContext";
+
+
 
 const App = () => {
   const currentTheme = localStorage.getItem("current_theme");
@@ -35,6 +38,7 @@ const App = () => {
                 <Hero />
                 <Feature subtitle="OUR PROGRAM" title="WHAT WE OFFER" />
                 {/* <Body /> */}
+                {/* <AuctionEnd/> */}
                 <Slider />
               </>
             }
@@ -46,6 +50,7 @@ const App = () => {
           <Route exact path="/bids" element={<Body />} />
           <Route exact path="/video" element={<Home />} />
           <Route exact path="/room/:id" element={<Video />} />
+          <Route exact path="/endauction" element={<AuctionEnd />} />
         </Routes>
         <Footer />
       </div>
@@ -54,3 +59,9 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+
+

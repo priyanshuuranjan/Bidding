@@ -28,7 +28,7 @@ const Slider = () => {
   return (
     <section className="section">
       <div className="title">
-        <h2>Happy Client🤝</h2>
+        <h2>OUR TEAM🤝</h2>
       </div>
       <div className="section-center">
         {people.map((item, indexPeople) => {
