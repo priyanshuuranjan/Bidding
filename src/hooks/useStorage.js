@@ -33,7 +33,7 @@ const useStorage = (data) => {
 
         setTimeout(async () => {
           await endAuctionsRef.add(auctionData);
-          await auctionDoc.delete();
+          // await auctionDoc.delete();
           setIsCompleted(true);
         }, dueDate - Date.now());
       }
