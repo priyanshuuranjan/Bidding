@@ -151,6 +151,10 @@ const AuctionCard = ({ item }) => {
         mobile: paymentDetails.mobile,
         paymentMethod: paymentDetails.paymentMethod,
         timestamp: new Date(),
+        itemName: item.title, 
+        itemDesc: item.desc, 
+        itemPrice: item.curPrice, 
+        itemImgUrl: item.imgUrl
       });
 
       // Close the popup after submission
@@ -164,7 +168,6 @@ const AuctionCard = ({ item }) => {
         paymentMethod: "cash",
       });
 
-      // Optionally, you can add logic here to navigate to the payment confirmation page or any other page.
       navigate("/PaymentDetails");
     } catch (error) {
       console.error("Error submitting payment details:", error);
