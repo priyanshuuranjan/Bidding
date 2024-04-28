@@ -21,9 +21,7 @@
 //   );
 // };
 
-
 // export default AuctionEnd;
-
 
 import React from "react";
 import useFirestore from "../../hooks/useFirestore";
@@ -33,10 +31,10 @@ import "./AuctionEnd.css";
 const AuctionEnd = () => {
   const { docs } = useFirestore("endauction");
 
-  const handleBuyNow = (auctionId) => {
-    // Implement your buy now logic here
-    console.log("Buy Now clicked for auction ID:", auctionId);
-  };
+  // const handleBuyNow = (auctionId) => {
+  //   // Implement your buy now logic here
+  //   console.log("Buy Now clicked for auction ID:", auctionId);
+  // };
 
   return (
     <div className="auction-end-container">
@@ -48,7 +46,7 @@ const AuctionEnd = () => {
               item={doc}
               key={doc.id}
               // Pass the buyNow function and winner information to AuctionCard
-              buyNow={handleBuyNow}
+              // buyNow={handleBuyNow}
             />
           ))}
       </div>
@@ -57,4 +55,3 @@ const AuctionEnd = () => {
 };
 
 export default AuctionEnd;
-

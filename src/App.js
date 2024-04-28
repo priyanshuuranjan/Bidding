@@ -13,6 +13,8 @@ import AuctionEnd from "./component/auctions/AuctionEnd";
 import Register from "./component/authentication/Register";
 import Home from "./component/Zoom/Home";
 import Video from "./component/Zoom/Video";
+import PaymentDetails from "./component/auctions/PaymentDetails";
+
 import { AuthProvider } from "./context/AuthContext";
 
 
@@ -51,6 +53,8 @@ const App = () => {
           <Route exact path="/video" element={<Home />} />
           <Route exact path="/room/:id" element={<Video />} />
           <Route exact path="/endauction" element={<AuctionEnd />} />
+          <Route exact path="/PaymentDetails" element={<PaymentDetails />} />
+          
         </Routes>
         <Footer />
       </div>

@@ -1,9 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Countdown from "react-countdown";
 import { AuthContext } from "../../context/AuthContext";
+import { firestoreApp } from "../../config/firebase";
+import { useNavigate } from "react-router-dom";
 import "./AuctionCard.css";
 
-const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
+const renderer = ({
+  days,
+  hours,
+  minutes,
+  seconds,
+  completed,
+  props,
+  handleBuyNow,
+}) => {
   if (completed) {
     // If the auction is completed, render the same card but with different content
     const currentUserIsWinner =
@@ -35,7 +45,7 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
               {currentUserIsWinner && (
                 <div
                   className="btn btn-outline-secondary"
-                  onClick={() => props.buyNow(props.item.id)}
+                  onClick={() => handleBuyNow()}
                 >
                   Buy Now
                 </div>
@@ -111,17 +121,163 @@ const renderer = ({ days, hours, minutes, seconds, completed, props }) => {
 const AuctionCard = ({ item }) => {
   let expiredDate = item.duration;
   const { currentUser, bidAuction, endAuction } = useContext(AuthContext);
+  const [showBuyNowPopup, setShowBuyNowPopup] = useState(false);
+  const navigate = useNavigate();
+  const [paymentDetails, setPaymentDetails] = useState({
+    name: "",
+    address: "",
+    mobile: "",
+    paymentMethod: "cash", // Default payment method
+  });
+
+  const handlePaymentDetailsChange = (e) => {
+    const { name, value } = e.target;
+    setPaymentDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
+  };
+
+  const handleOrderSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Store payment details in Firestore
+      await firestoreApp.collection("paymentdetails").add({
+        userId: currentUser.uid,
+        auctionId: item.id,
+        name: paymentDetails.name,
+        address: paymentDetails.address,
+        mobile: paymentDetails.mobile,
+        paymentMethod: paymentDetails.paymentMethod,
+        timestamp: new Date(),
+      });
+
+      // Close the popup after submission
+      setShowBuyNowPopup(false);
+
+      // Clear payment details state
+      setPaymentDetails({
+        name: "",
+        address: "",
+        mobile: "",
+        paymentMethod: "cash",
+      });
+
+      // Optionally, you can add logic here to navigate to the payment confirmation page or any other page.
+      navigate("/PaymentDetails");
+    } catch (error) {
+      console.error("Error submitting payment details:", error);
+    }
+  };
+
+  const handleBuyNow = () => {
+    setShowBuyNowPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setShowBuyNowPopup(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        showBuyNowPopup &&
+        !event.target.closest(".form-container") &&
+        !event.target.closest(".btn")
+      ) {
+        setShowBuyNowPopup(false);
+      }
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, [showBuyNowPopup]);
 
   return (
-    <Countdown
-      owner={currentUser}
-      date={expiredDate}
-      bidAuction={bidAuction}
-      endAuction={endAuction}
-      item={item}
-      renderer={renderer}
-      intervalDelay={0}
-    />
+    <>
+      <Countdown
+        owner={currentUser}
+        date={expiredDate}
+        bidAuction={bidAuction}
+        endAuction={endAuction}
+        item={item}
+        renderer={(props) => renderer({ ...props, handleBuyNow })}
+        intervalDelay={0}
+      />
+      <div className={`form-overlay ${showBuyNowPopup ? "show" : ""}`}>
+        {showBuyNowPopup && (
+          <div className="form-overlay" onClick={handleClosePopup}></div>
+        )}
+      </div>
+      {showBuyNowPopup && (
+        <div className="form-container show">
+          <form className="auction" onSubmit={handleOrderSubmit}>
+            {/* Payment details form */}
+            <div className="heading">
+              <div className="text">Payment Details</div>
+              <div className="under"></div>
+            </div>
+            <div className="box">
+              <div className="input">
+                <img src="/assets/person.png" alt="" />
+                <input
+                  type="text"
+                  placeholder="Name"
+                  required
+                  name="name"
+                  value={paymentDetails.name}
+                  onChange={handlePaymentDetailsChange}
+                />
+              </div>
+              <div className="input">
+                <img src="/assets/address.png" alt="" />
+                <input
+                  type="text"
+                  placeholder="Address"
+                  required
+                  name="address"
+                  value={paymentDetails.address}
+                  onChange={handlePaymentDetailsChange}
+                />
+              </div>
+              <div className="input">
+                <img src="/assets/mobile.png" alt="" />
+                <input
+                  type="text"
+                  placeholder="Mobile No"
+                  required
+                  name="mobile"
+                  value={paymentDetails.mobile}
+                  onChange={handlePaymentDetailsChange}
+                />
+              </div>
+              <div className="input">
+                <img src="/assets/payment.png" alt="" />
+                <select
+                  name="paymentMethod"
+                  id="paymentMethod"
+                  required
+                  value={paymentDetails.paymentMethod}
+                  onChange={handlePaymentDetailsChange}
+                >
+                  <option value="cash">Cash</option>
+                  <option value="online">Online</option>
+                </select>
+              </div>
+            </div>
+            <div className="submit-btn-container">
+              <button type="submit" className="submit-btn">
+                Order
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
+    </>
   );
 };
 
