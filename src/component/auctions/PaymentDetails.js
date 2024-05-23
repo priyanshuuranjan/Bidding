@@ -20,7 +20,13 @@ const PaymentDetails = () => {
           ...doc.data(),
         }));
 
-        setPaymentDetails(details);
+        // Generate random delivery date within 5 to 8 days
+        const updatedDetails = details.map((payment) => ({
+          ...payment,
+          deliveryDate: generateDeliveryDate(),
+        }));
+
+        setPaymentDetails(updatedDetails);
       } catch (error) {
         console.error("Error fetching payment details:", error);
       }
@@ -30,6 +36,16 @@ const PaymentDetails = () => {
       fetchPaymentDetails();
     }
   }, [currentUser]);
+
+  const generateDeliveryDate = () => {
+    const minDays = 5;
+    const maxDays = 12;
+    const deliveryDays =
+      Math.floor(Math.random() * (maxDays - minDays + 1)) + minDays;
+    const deliveryDate = new Date();
+    deliveryDate.setDate(deliveryDate.getDate() + deliveryDays);
+    return deliveryDate.toDateString();
+  };
 
   return (
     <div className="payment-container">
@@ -41,6 +57,7 @@ const PaymentDetails = () => {
           <p>Address: {payment.address}</p>
           <p>Mobile: {payment.mobile}</p>
           <p>Payment Method: {payment.paymentMethod}</p>
+          <p>Expected Delivery Date: {payment.deliveryDate}</p>{" "}
           <div className="item-details">
             <div>
               <p>Item Name: {payment.itemName}</p>
