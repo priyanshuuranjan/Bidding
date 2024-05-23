@@ -32,8 +32,8 @@ const Navbar = ({ theme, setTheme }) => {
         <Link to="/bids">
           <li>Live Auctions</li>
         </Link>
-        <Link to="/endauction">
-          <li>Closed Auctions</li>
+        <Link to="/paymentDetails">
+          <li>Payment Details</li>
         </Link>
         <Link to="/contact">
           <li>Contact</li>
