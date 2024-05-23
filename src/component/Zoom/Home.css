@@ -7,7 +7,7 @@
   height: 80vh;
 }
 
-.input-zoom {
+.inp-zoom {
   display: flex;
   align-items: center;
   padding: 20px;
@@ -16,7 +16,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.input {
+.inp {
   padding: 10px;
   font-size: 16px;
   width: 250px;
@@ -26,7 +26,7 @@
   outline: none;
 }
 
-.input::placeholder {
+.inp::placeholder {
   color: #676565;
 }
 

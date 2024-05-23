@@ -13,9 +13,9 @@ const Home = () => {
 
   return (
     <div className="zoom">
-      <div className="input-zoom margin-top">
+      <div className="inp-zoom margin-top">
         <input
-          className="input"
+          className="inp"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           type="text"

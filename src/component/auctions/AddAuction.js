@@ -37,7 +37,7 @@ const AddAuction = ({ setAuction }) => {
       return;
     }
 
-    const durationInMillis = durationHours * 60 * 1000; // time changes into minutes for testing *60 means for hour
+    const durationInMillis = durationHours * 60 * 60 * 1000; //! time changes into minutes for testing *60 means for hour
 
     const currentDate = new Date();
     const dueDate = currentDate.getTime() + durationInMillis;
