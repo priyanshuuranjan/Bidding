@@ -1,7 +1,15 @@
+// Hero.js
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import "./Hero.css";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleJoinNow = () => {
+    navigate("/bids"); 
+  };
+
   return (
     <div className="hero">
       <div className="left">
@@ -17,7 +25,9 @@ const Hero = () => {
           Join our community today to experience the excitement of auctions
           without intermediaries!
         </p>
-        <button className="join-button">Join Now!</button>
+        <button className="join-button" onClick={handleJoinNow}>
+          Join Now!
+        </button>
       </div>
       <div className="right">
         <img
