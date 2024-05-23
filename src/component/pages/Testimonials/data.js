@@ -33,7 +33,7 @@ const people = [
   },
   {
     id: 5,
-    image: "/assets/harsh.jpg",
+    image: "/assets/sri.jpg",
     name: "Shripriya Gautam",
     title: "Frontend",
     quote:
