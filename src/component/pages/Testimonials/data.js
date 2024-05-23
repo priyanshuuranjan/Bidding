@@ -31,6 +31,22 @@ const people = [
     quote:
       "I prioritized user engagement by creating an intuitive and visually appealing interface. My emphasis on responsiveness played a crucial role in Bidster's success.",
   },
+  {
+    id: 5,
+    image: "/assets/harsh.jpg",
+    name: "Shripriya Gautam",
+    title: "Frontend",
+    quote:
+      "I improved user engagement by enhancing Bidster's interface and responsiveness. Specifically, I added email notifications for form submissions and simplified the About page.",
+  },
+  {
+    id: 6,
+    image: "/assets/Axat.jpeg",
+    name: "Axat Sankhyan",
+    title: "ZegoCloud",
+    quote:
+      "I prioritized user engagement by creating an intuitive and visually appealing interface. My emphasis on responsiveness played a crucial role in Bidster's success.",
+  },
 ];
 
 export default people;
