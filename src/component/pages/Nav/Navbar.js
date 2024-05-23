@@ -62,16 +62,6 @@ const Navbar = ({ theme, setTheme }) => {
           </>
         )}
       </ul>
-
-      {/* <div className="search-box">
-        <input type="text" placeholder="Search" />
-        <img
-          src={
-            theme === "light" ? "/assets/search-w.png" : "/assets/search-b.png"
-          }
-          alt=""
-        />
-      </div> */}
       <img
         onClick={toggle_mode}
         src={theme === "light" ? "/assets/night.png" : "/assets/day.png"}
