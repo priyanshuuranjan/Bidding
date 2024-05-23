@@ -18,7 +18,7 @@ const people = [
   {
     id: 3,
     image: "/assets/priyanshu.jpg",
-    name: "Priyanshu Singh",
+    name: "Priyanshu Ranjan",
     title: "Backend",
     quote:
       " I optimized aesthetics and functionality, crafting a seamless user interface. Utilizing Firebase Firestore, I managed responsive design and efficient data storage.",
