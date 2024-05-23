@@ -12,7 +12,7 @@ const Video = () => {
       serverSecret,
       id,
       Date.now().toString(),
-      "Axat"
+      "axat"
     );
 
     const zp = ZegoUIKitPrebuilt.create(kitToken);
@@ -31,7 +31,7 @@ const Video = () => {
         },
       ],
       scenario: {
-        mode: ZegoUIKitPrebuilt.VideoConference, 
+        mode: ZegoUIKitPrebuilt.VideoConference,
       },
     });
   };

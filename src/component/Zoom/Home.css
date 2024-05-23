@@ -1,40 +1,49 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
- 
-  .zoom{
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .input-container {
-    margin-bottom: 20px;
-  }
-  
-  input {
-    padding: 10px;
-    margin-top: 50px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 250px;
-    margin-right: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+/* Home.css */
+
+.zoom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.input-zoom {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #b5b1b1;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  border: 1px solid #747272;
+  border-radius: 5px;
+  margin-right: 10px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #676565;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
