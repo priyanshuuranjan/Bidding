@@ -11,7 +11,7 @@ const people = [
     id: 2,
     image: "/assets/Amits.jpg",
     name: "Amit Kumar",
-    title: "Project Guider",
+    title: "UI Design",
     quote:
       "I crafted a project bid. Briefly highlighted project importance, outlined scope. Showcased Figma UI design, summarized research findings succinctly.",
   },
@@ -19,7 +19,7 @@ const people = [
     id: 3,
     image: "/assets/priyanshu.jpg",
     name: "Priyanshu Singh",
-    title: "UI & Backend",
+    title: "Backend",
     quote:
       " I optimized aesthetics and functionality, crafting a seamless user interface. Utilizing Firebase Firestore, I managed responsive design and efficient data storage.",
   },
