@@ -53,3 +53,74 @@ const useStorage = (data, paymentDetails) => {
 };
 
 export default useStorage;
+
+
+
+/* import { useState, useEffect } from "react";
+import { firestoreApp, storageApp, timestamp } from "../config/firebase";
+
+const useStorage = (data, paymentDetails) => {
+  const [progress, setProgress] = useState(0);
+  const [isCompleted, setIsCompleted] = useState(null);
+
+  useEffect(() => {
+    const storageRef = storageApp.ref(data.itemImage.name);
+    const auctionsRef = firestoreApp.collection("auctions");
+    const endAuctionsRef = firestoreApp.collection("endauction");
+    const paymentRef = firestoreApp.collection("paymentdetails"); // Add payment collection reference
+
+    const uploadTask = storageRef.put(data.itemImage);
+
+    uploadTask.on(
+      "state_changed",
+      (snap) => {
+        let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+        setProgress(percentage);
+      },
+      (err) => {
+        console.log(err);
+      },
+      async () => {
+        const imgUrl = await storageRef.getDownloadURL();
+        const createdAt = timestamp();
+        delete data.itemImage;
+
+        const auctionDoc = await auctionsRef.add({
+          ...data,
+          createdAt,
+          imgUrl,
+        });
+
+        // Check if any bids have been placed on the auction
+        const bidsSnapshot = await firestoreApp
+          .collection("bids")
+          .where("auctionId", "==", auctionDoc.id)
+          .get();
+
+        // If no bids have been placed, move the auction to the endauction collection
+        if (bidsSnapshot.empty) {
+          const auctionData = {
+            id: auctionDoc.id,
+            ...data,
+            createdAt,
+            imgUrl,
+            endTime: new Date(data.duration).getTime(),
+          };
+
+          await endAuctionsRef.add(auctionData);
+          setIsCompleted(true);
+        }
+
+        // Store payment details in payment collection
+        await paymentRef.add({ ...paymentDetails, auctionId: auctionDoc.id });
+      }
+    );
+
+    return () => uploadTask.cancel();
+  }, [data, paymentDetails]);
+
+  return { progress, isCompleted };
+};
+
+export default useStorage;
+  */

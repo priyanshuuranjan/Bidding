@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 import Alert from "@mui/material/Alert";
 import { AuthContext } from "../../context/AuthContext";
 import "./AddAuction.css";
+import notify from "./Notification";
 
 const AddAuction = ({ setAuction }) => {
   const [error, setError] = useState("");
@@ -58,6 +59,10 @@ const AddAuction = ({ setAuction }) => {
       console.error("Error setting auction data:", error);
       setError("Failed to submit auction data. Please try again later.");
     }
+    notify(
+      "🌟 Auction Placed",
+      "Hooray! Your auction has been placed successfully! Get ready for some exciting bids!"
+    );
   };
 
   return (

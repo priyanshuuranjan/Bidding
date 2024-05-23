@@ -3,6 +3,7 @@ import Countdown from "react-countdown";
 import { AuthContext } from "../../context/AuthContext";
 import { firestoreApp } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
+import notify from "./Notification";
 import "./AuctionCard.css";
 
 const renderer = ({
@@ -85,7 +86,10 @@ const renderer = ({
             <div>
               {!props.owner ? (
                 <div
-                  onClick={() => props.bidAuction()}
+                  onClick={() => {
+                    props.bidAuction();
+                    notify("Bid Placed", "Someone bid on this auction!");
+                  }}
                   className="btn btn-outline-secondary"
                 >
                   Bid
@@ -101,9 +105,13 @@ const renderer = ({
                 <p className="winner">Current Bid:{props.owner.email} </p>
               ) : (
                 <div
-                  onClick={() =>
-                    props.bidAuction(props.item.id, props.item.curPrice)
-                  }
+                  onClick={() => {
+                    props.bidAuction(props.item.id, props.item.curPrice);
+                    notify(
+                      "Bid Placed",
+                      `Your bid of ${props.item.curPrice} has been placed successfully!`
+                    );
+                  }}
                   className="btn btn-outline-secondary"
                 >
                   Bid
@@ -151,11 +159,14 @@ const AuctionCard = ({ item }) => {
         mobile: paymentDetails.mobile,
         paymentMethod: paymentDetails.paymentMethod,
         timestamp: new Date(),
-        itemName: item.title, 
-        itemDesc: item.desc, 
-        itemPrice: item.curPrice, 
-        itemImgUrl: item.imgUrl
+        itemName: item.title,
+        itemDesc: item.desc,
+        itemPrice: item.curPrice,
+        itemImgUrl: item.imgUrl,
       });
+
+      // Delete the auction from live auctions
+      await firestoreApp.collection("auctions").doc(item.id).delete();
 
       // Close the popup after submission
       setShowBuyNowPopup(false);
@@ -167,6 +178,21 @@ const AuctionCard = ({ item }) => {
         mobile: "",
         paymentMethod: "cash",
       });
+
+      // Notify the user about the successful submission
+      if (Notification.permission === "granted") {
+        new Notification("Payment Successful", {
+          body: "Your order has been placed successfully!",
+        });
+      } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+          if (permission === "granted") {
+            new Notification("Payment Successful", {
+              body: "Your order has been placed successfully!",
+            });
+          }
+        });
+      }
 
       navigate("/PaymentDetails");
     } catch (error) {
