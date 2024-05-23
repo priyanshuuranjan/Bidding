@@ -7,8 +7,8 @@ const Video = () => {
   const { id } = useParams();
   let myMeeting = async (element) => {
     // generate Kit Token
-    const appID = 1003131021;
-    const serverSecret = "83e56f1b2642fa49fb996261e59249bc";
+    const appID = 1614066159;
+    const serverSecret = "be1c8faa9cf56f7496956a151a81d77d";
     const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
       appID,
       serverSecret,
