@@ -45,7 +45,7 @@ const people = [
     name: "Axat Sankhyan",
     title: "ZegoCloud",
     quote:
-      "I enhanced user engagement with an intuitive, visually appealing interface, making responsiveness a priority for Bidster's success. I worked on ZGOCloud for one-on-one interactions.",
+    "I made responsiveness a priority for Bidster's success, enhancing user engagement with an intuitive interface. I worked on ZGOCloud for one-on-one interactions.",
   },
 ];
 
