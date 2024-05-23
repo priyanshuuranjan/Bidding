@@ -9,7 +9,7 @@ const Navbar = ({ theme, setTheme }) => {
   };
 
   const [isMobile, setMobile] = useState(false);
-  const { currentUser, logout } = useContext(AuthContext); // Access currentUser from AuthContext
+  const { currentUser, logout } = useContext(AuthContext); 
 
   return (
     <div className="navbar">
