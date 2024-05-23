@@ -45,7 +45,7 @@ const people = [
     name: "Axat Sankhyan",
     title: "ZegoCloud",
     quote:
-      "I prioritized user engagement by creating an intuitive and visually appealing interface. My emphasis on responsiveness played a crucial role in Bidster's success.",
+      "I enhanced user engagement with an intuitive, visually appealing interface, making responsiveness a priority for Bidster's success. In short, I worked on ZGOCloud for one-on-one interactions.",
   },
 ];
 
